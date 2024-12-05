@@ -2,6 +2,7 @@ import json
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -19,7 +20,7 @@ driver = webdriver.Chrome(options=options)
 try:
     # Navigate to the website
     driver.get('https://game-one-customizer-stg.qstrike.net/')
-    
+
     time.sleep(2)
     WebDriverWait(driver, 10).until(EC.title_contains('Game One Customizer - Home'))
 
@@ -28,17 +29,18 @@ try:
         (By.XPATH, "//*[@class='qx-login']"))).click()
 
     # Fill in username
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
-        (By.XPATH, "//*[@id='login-dropdown']/form/div[1]/div/input"))).send_keys(username)
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='login-dropdown']/form/div[1]/div/input"))).send_keys(username)
     
     time.sleep(2)
     # Fill in password
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
-        (By.XPATH, "//*[@id='login-dropdown']/form/div[2]/div/div/input"))).send_keys(password)
+    WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='login-dropdown']/form/div[2]/div/div/input"))).send_keys(password)
     
-    # Submit the login form
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
-        (By.XPATH, "//*[@id='login-dropdown']/form/div[3]/button"))).click()
+    WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='login-dropdown']/form/div[3]/button"))).click()
+
     time.sleep(5)
+    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='qx-header']/div[1]/div[2]/a"))).click()
+    time.sleep(5)
+    
+          
 finally:
     driver.quit()
