@@ -40,5 +40,4 @@ try:
         (By.XPATH, "//*[@id='login-dropdown']/form/div[3]/button"))).click()
     time.sleep(5)
 finally:
-    # Stop the driver
     driver.quit()
