@@ -1,2 +1,2 @@
 username = "l.ayeras@qstrike.com"
-password = "ayerasleandro23lL*"
+password = "12345678lL*"

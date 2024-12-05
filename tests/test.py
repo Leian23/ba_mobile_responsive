@@ -19,6 +19,7 @@ driver = webdriver.Chrome(options=options)
 try:
     # Navigate to the website
     driver.get('https://game-one-customizer-stg.qstrike.net/')
+    
     time.sleep(2)
     WebDriverWait(driver, 10).until(EC.title_contains('Game One Customizer - Home'))
 
