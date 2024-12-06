@@ -39,7 +39,9 @@ try:
 
     time.sleep(5)
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='qx-header']/div[1]/div[2]/a"))).click()
-    time.sleep(5)
+    time.sleep(2)
+    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='mobile-sidebar-navigation']/div/div/ul/li[1]/a"))).click()
+    time.sleep(2)
     
           
 finally:
